@@ -1,0 +1,18 @@
+{
+    "os": "Linux-5.15.0-52-generic-x86_64-with-glibc2.17",
+    "python": "3.8.13",
+    "heartbeatAt": "2022-10-26T05:01:14.600424",
+    "startedAt": "2022-10-26T05:01:11.282344",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "train_mc.py",
+    "codePath": "train_mc.py",
+    "host": "nagio-no-pasokon",
+    "username": "nagio",
+    "executable": "/data/miniconda3/envs/adl_hw2/bin/python3"
+}

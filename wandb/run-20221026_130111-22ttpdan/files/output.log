@@ -1,0 +1,329 @@
+
+Downloading: 100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 659/659 [00:00<00:00, 437kB/s]
+BertConfig {
+  "_name_or_path": "hfl/chinese-macbert-base",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "return_dict": false,
+  "transformers_version": "4.23.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 21128
+}
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 19.0/19.0 [00:00<00:00, 12.7kB/s]
+
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 110k/110k [00:00<00:00, 182kB/s]
+Downloading: 100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 269k/269k [00:00<00:00, 442kB/s]
+Preprocessing train Data:
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 2.00/2.00 [00:00<00:00, 1.40kB/s]
+Downloading: 100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 112/112 [00:00<00:00, 81.3kB/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████▋| 21663/21714 [00:29<00:00, 725.37it/s]
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21714/21714 [00:30<00:00, 723.71it/s]
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3009/3009 [00:04<00:00, 706.39it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Downloading: 100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 412M/412M [00:35<00:00, 11.6MB/s]
+Some weights of the model checkpoint at hfl/chinese-macbert-base were not used when initializing BertForMultipleChoice: ['cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.predictions.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.transform.dense.weight', 'cls.seq_relationship.bias', 'cls.predictions.decoder.weight', 'cls.predictions.decoder.bias']
+- This IS expected if you are initializing BertForMultipleChoice from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForMultipleChoice from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForMultipleChoice were not initialized from the model checkpoint at hfl/chinese-macbert-base and are newly initialized: ['classifier.bias', 'classifier.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Epoch 1:
+  0%|                                                                                                                                                                             | 0/5429 [00:00<?, ?it/s]
+Traceback (most recent call last):
+  File "train_mc.py", line 223, in <module>
+    main(args)
+  File "train_mc.py", line 110, in main
+    train_loss, train_acc = train(model, accelerator, train_loader, optimizer, args, scheduler)
+  File "train_mc.py", line 25, in train
+    loss, logits = model(input_ids=input_ids, token_type_ids=token_type_ids, attention_mask=attention_masks, labels=labels)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/accelerate/utils/operations.py", line 507, in __call__
+    return convert_to_fp32(self.model_forward(*args, **kwargs))
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/amp/autocast_mode.py", line 12, in decorate_autocast
+    return func(*args, **kwargs)
+  File "/data/ntu/adl2022/ADL22-HW2/model.py", line 29, in forward
+    return self.model(*args, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1663, in forward
+    outputs = self.bert(
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 1014, in forward
+    encoder_outputs = self.encoder(
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 603, in forward
+    layer_outputs = layer_module(
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 489, in forward
+    self_attention_outputs = self.attention(
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 419, in forward
+    self_outputs = self.self(
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/module.py", line 1130, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/modeling_bert.py", line 344, in forward
+    attention_scores = attention_scores + attention_mask
+RuntimeError: CUDA out of memory. Tried to allocate 192.00 MiB (GPU 0; 7.80 GiB total capacity; 6.55 GiB already allocated; 136.81 MiB free; 6.68 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+[31m╭─────────────────────────────── [39m[1mTraceback (most recent call last)[31m[22m ────────────────────────────────╮
+[31m│[39m /data/ntu/adl2022/ADL22-HW2/[1mtrain_mc.py[22m:[94m223[39m in [92m<module>[39m                                          [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   220 │   │   resume = [33m"allow"[39m                                                                   [31m│
+[31m│[39m   221 │   )                                                                                      [31m│
+[31m│[39m   222 │   artifact = wandb.Artifact([33m"model"[39m, [96mtype[39m=[33m"model"[39m)                                       [31m│
+[31m│[39m [31m❱ [39m223 │   main(args)                                                                             [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/ADL22-HW2/[1mtrain_mc.py[22m:[94m110[39m in [92mmain[39m                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   107 │                                                                                          [31m│
+[31m│[39m   108 │   [94mfor[39m epoch [95min[39m [96mrange[39m(start_epoch, args.num_epoch + [94m1[39m):                                   [31m│
+[31m│[39m   109 │   │   [96mprint[39m([33mf"Epoch {[39mepoch[33m}:"[39m)                                                           [31m│
+[31m│[39m [31m❱ [39m110 │   │   train_loss, train_acc = train(model, accelerator, train_loader, optimizer, args,   [31m│
+[31m│[39m   111 │   │   valid_loss, valid_acc = validate(model, valid_loader)                              [31m│
+[31m│[39m   112 │   │   [96mprint[39m([33mf"Train Accuracy: {[39mtrain_acc[33m:.2f}, Train Loss: {[39mtrain_loss[33m:.2f}"[39m)            [31m│
+[31m│[39m   113 │   │   [96mprint[39m([33mf"Valid Accuracy: {[39mvalid_acc[33m:.2f}, Valid Loss: {[39mvalid_loss[33m:.2f}"[39m)            [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/ADL22-HW2/[1mtrain_mc.py[22m:[94m25[39m in [92mtrain[39m                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    22 │                                                                                          [31m│
+[31m│[39m    23 │   [94mfor[39m idx, batch [95min[39m [96menumerate[39m(tqdm(data_loader)):                                        [31m│
+[31m│[39m    24 │   │   ids, input_ids, token_type_ids, attention_masks, labels = batch                    [31m│
+[31m│[39m [31m❱ [39m 25 │   │   loss, logits = model(input_ids=input_ids, token_type_ids=token_type_ids, attenti   [31m│
+[31m│[39m    26 │   │   acc = (logits.argmax(dim=-[94m1[39m) == labels).cpu().float().mean()                       [31m│
+[31m│[39m    27 │   │   loss = loss / args.accumulation_steps                                              [31m│
+[31m│[39m    28 │   │   accelerator.backward(loss)                                                         [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/accelerate/utils/[1moperations.py[22m:[94m507[39m in  [31m│
+[31m│[39m [92m__call__[39m                                                                                         [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   504 │   │   update_wrapper([96mself[39m, model_forward)                                                [31m│
+[31m│[39m   505 │                                                                                          [31m│
+[31m│[39m   506 │   [94mdef[39m [92m__call__[39m([96mself[39m, *args, **kwargs):                                                   [31m│
+[31m│[39m [31m❱ [39m507 │   │   [94mreturn[39m convert_to_fp32([96mself[39m.model_forward(*args, **kwargs))                        [31m│
+[31m│[39m   508                                                                                            [31m│
+[31m│[39m   509                                                                                            [31m│
+[31m│[39m   510 convert_outputs_to_fp32 = ConvertOutputsToFp32                                             [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/amp/[1mautocast_mode.py[22m:[94m12[39m in       [31m│
+[31m│[39m [92mdecorate_autocast[39m                                                                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m     9 │   [1m@functools[22m.wraps(func)                                                                 [31m│
+[31m│[39m    10 │   [94mdef[39m [92mdecorate_autocast[39m(*args, **kwargs):                                                [31m│
+[31m│[39m    11 │   │   [94mwith[39m autocast_instance:                                                            [31m│
+[31m│[39m [31m❱ [39m 12 │   │   │   [94mreturn[39m func(*args, **kwargs)                                                   [31m│
+[31m│[39m    13 │   decorate_autocast.__script_unsupported = [33m'@autocast() decorator is not supported in [39m   [31m│
+[31m│[39m    14 │   [94mreturn[39m decorate_autocast                                                               [31m│
+[31m│[39m    15                                                                                            [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/ADL22-HW2/[1mmodel.py[22m:[94m29[39m in [92mforward[39m                                               [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   26 │   │   [33m"""[39m                                                                                 [31m│
+[31m│[39m   27 │                                                                                           [31m│
+[31m│[39m   28 │   [94mdef[39m [92mforward[39m([96mself[39m, *args, **kwargs):                                                     [31m│
+[31m│[39m [31m❱ [39m29 │   │   [94mreturn[39m [96mself[39m.model(*args, **kwargs)                                                  [31m│
+[31m│[39m   30 │                                                                                           [31m│
+[31m│[39m   31 │   [94mdef[39m [92mfreeze_bert[39m([96mself[39m):                                                                  [31m│
+[31m│[39m   32 │   │   [96mprint[39m([33m"Freezing BERT"[39m)                                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m1663[39m in [92mforward[39m                                                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1660 │   │   │   [94melse[39m [94mNone[39m                                                                     [31m│
+[31m│[39m   1661 │   │   )                                                                                 [31m│
+[31m│[39m   1662 │   │                                                                                     [31m│
+[31m│[39m [31m❱ [39m1663 │   │   outputs = [96mself[39m.bert(                                                              [31m│
+[31m│[39m   1664 │   │   │   input_ids,                                                                    [31m│
+[31m│[39m   1665 │   │   │   attention_mask=attention_mask,                                                [31m│
+[31m│[39m   1666 │   │   │   token_type_ids=token_type_ids,                                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m1014[39m in [92mforward[39m                                                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1011 │   │   │   inputs_embeds=inputs_embeds,                                                  [31m│
+[31m│[39m   1012 │   │   │   past_key_values_length=past_key_values_length,                                [31m│
+[31m│[39m   1013 │   │   )                                                                                 [31m│
+[31m│[39m [31m❱ [39m1014 │   │   encoder_outputs = [96mself[39m.encoder(                                                   [31m│
+[31m│[39m   1015 │   │   │   embedding_output,                                                             [31m│
+[31m│[39m   1016 │   │   │   attention_mask=extended_attention_mask,                                       [31m│
+[31m│[39m   1017 │   │   │   head_mask=head_mask,                                                          [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m603[39m in [92mforward[39m                                                                               [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    600 │   │   │   │   │   encoder_attention_mask,                                               [31m│
+[31m│[39m    601 │   │   │   │   )                                                                         [31m│
+[31m│[39m    602 │   │   │   [94melse[39m:                                                                         [31m│
+[31m│[39m [31m❱ [39m 603 │   │   │   │   layer_outputs = layer_module(                                             [31m│
+[31m│[39m    604 │   │   │   │   │   hidden_states,                                                        [31m│
+[31m│[39m    605 │   │   │   │   │   attention_mask,                                                       [31m│
+[31m│[39m    606 │   │   │   │   │   layer_head_mask,                                                      [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m489[39m in [92mforward[39m                                                                               [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    486 │   ) -> Tuple[torch.Tensor]:                                                             [31m│
+[31m│[39m    487 │   │   # decoder uni-directional self-attention cached key/values tuple is at positions  [31m│
+[31m│[39m    488 │   │   self_attn_past_key_value = past_key_value[:[94m2[39m] [94mif[39m past_key_value [95mis[39m [95mnot[39m [94mNone[39m [94melse[39m  [31m│
+[31m│[39m [31m❱ [39m 489 │   │   self_attention_outputs = [96mself[39m.attention(                                          [31m│
+[31m│[39m    490 │   │   │   hidden_states,                                                                [31m│
+[31m│[39m    491 │   │   │   attention_mask,                                                               [31m│
+[31m│[39m    492 │   │   │   head_mask,                                                                    [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m419[39m in [92mforward[39m                                                                               [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    416 │   │   past_key_value: Optional[Tuple[Tuple[torch.FloatTensor]]] = [94mNone[39m,                 [31m│
+[31m│[39m    417 │   │   output_attentions: Optional[[96mbool[39m] = [94mFalse[39m,                                        [31m│
+[31m│[39m    418 │   ) -> Tuple[torch.Tensor]:                                                             [31m│
+[31m│[39m [31m❱ [39m 419 │   │   self_outputs = [96mself[39m.self(                                                         [31m│
+[31m│[39m    420 │   │   │   hidden_states,                                                                [31m│
+[31m│[39m    421 │   │   │   attention_mask,                                                               [31m│
+[31m│[39m    422 │   │   │   head_mask,                                                                    [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/torch/nn/modules/[1mmodule.py[22m:[94m1130[39m in     [31m│
+[31m│[39m [92m_call_impl[39m                                                                                       [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   1127 │   │   # this function, and just call forward.                                           [31m│
+[31m│[39m   1128 │   │   [94mif[39m [95mnot[39m ([96mself[39m._backward_hooks [95mor[39m [96mself[39m._forward_hooks [95mor[39m [96mself[39m._forward_pre_hooks [95mo[39m  [31m│
+[31m│[39m   1129 │   │   │   │   [95mor[39m _global_forward_hooks [95mor[39m _global_forward_pre_hooks):                   [31m│
+[31m│[39m [31m❱ [39m1130 │   │   │   [94mreturn[39m forward_call(*[96minput[39m, **kwargs)                                         [31m│
+[31m│[39m   1131 │   │   # Do not call functions when jit is used                                          [31m│
+[31m│[39m   1132 │   │   full_backward_hooks, non_full_backward_hooks = [], []                             [31m│
+[31m│[39m   1133 │   │   [94mif[39m [96mself[39m._backward_hooks [95mor[39m _global_backward_hooks:                                [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/miniconda3/envs/adl_hw2/lib/python3.8/site-packages/transformers/models/bert/[1mmodeling_bert[22m [31m│
+[31m│[39m [1m.py[22m:[94m344[39m in [92mforward[39m                                                                               [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    341 │   │   attention_scores = attention_scores / math.sqrt([96mself[39m.attention_head_size)         [31m│
+[31m│[39m    342 │   │   [94mif[39m attention_mask [95mis[39m [95mnot[39m [94mNone[39m:                                                    [31m│
+[31m│[39m    343 │   │   │   # Apply the attention mask is (precomputed for all layers in BertModel forwa  [31m│
+[31m│[39m [31m❱ [39m 344 │   │   │   attention_scores = attention_scores + attention_mask                          [31m│
+[31m│[39m    345 │   │                                                                                     [31m│
+[31m│[39m    346 │   │   # Normalize the attention scores to probabilities.                                [31m│
+[31m│[39m    347 │   │   attention_probs = nn.functional.softmax(attention_scores, dim=-[94m1[39m)                 [31m│
+[31m╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+[1mRuntimeError: [22mCUDA out of memory. Tried to allocate [1m192.00[22m MiB [1m([22mGPU [1m0[22m; [1m7.80[22m GiB total capacity; [1m6.55[22m GiB already allocated; [1m136.81[22m MiB free; [1m6.68[22m GiB reserved in total by PyTorch[1m)[22m If reserved memory is
+>> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
