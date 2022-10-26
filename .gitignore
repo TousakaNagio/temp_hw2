@@ -1,0 +1,4 @@
+./ckpt/*
+*.ckpt
+__pycache__
+ntu-adl-hw2-fall-2022.zip
