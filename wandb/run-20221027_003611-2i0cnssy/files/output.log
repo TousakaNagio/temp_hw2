@@ -1,0 +1,68 @@
+BertConfig {
+  "_name_or_path": "hfl/chinese-macbert-base",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.23.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 21128
+}
+Traceback (most recent call last):
+  File "train_qa.py", line 273, in <module>
+    main(args)
+  File "train_qa.py", line 100, in main
+    train_set = QADataset(args, tokenizer, mode='train')
+  File "/data/ntu/adl2022/adl22_hw2/datasets.py", line 77, in __init__
+    with open(context_path, "r") as f:
+FileNotFoundError: [Errno 2] No such file or directory: './context.json'
+[31m╭─────────────────────────────── [39m[1mTraceback (most recent call last)[31m[22m ────────────────────────────────╮
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mtrain_qa.py[22m:[94m273[39m in [92m<module>[39m                                          [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   270 │   │   resume = [33m"allow"[39m                                                                   [31m│
+[31m│[39m   271 │   )                                                                                      [31m│
+[31m│[39m   272 │   artifact = wandb.Artifact([33m"model"[39m, [96mtype[39m=[33m"model"[39m)                                       [31m│
+[31m│[39m [31m❱ [39m273 │   main(args)                                                                             [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mtrain_qa.py[22m:[94m100[39m in [92mmain[39m                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    97 │                                                                                          [31m│
+[31m│[39m    98 │   tokenizer = AutoTokenizer.from_pretrained(args.model_name, config=config, model_max_   [31m│
+[31m│[39m    99 │                                                                                          [31m│
+[31m│[39m [31m❱ [39m100 │   train_set = QADataset(args, tokenizer, mode=[33m'train'[39m)                                   [31m│
+[31m│[39m   101 │   valid_set = QADataset(args, tokenizer, mode=[33m'valid'[39m)                                   [31m│
+[31m│[39m   102 │   train_loader = DataLoader(train_set, collate_fn=train_set.collate_fn, shuffle=[94mTrue[39m,    [31m│
+[31m│[39m   103 │   valid_loader = DataLoader(valid_set, collate_fn=valid_set.collate_fn, shuffle=[94mFalse[39m,   [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mdatasets.py[22m:[94m77[39m in [92m__init__[39m                                           [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m    74 │   │   [94melse[39m:                                                                              [31m│
+[31m│[39m    75 │   │   │   context_path = os.path.join(args.data_dir, [33m"context.json"[39m)                     [31m│
+[31m│[39m    76 │   │   │   json_path = os.path.join(args.data_dir, [33mf"{[39mmode[33m}.json"[39m)                        [31m│
+[31m│[39m [31m❱ [39m 77 │   │   [94mwith[39m [96mopen[39m(context_path, [33m"r"[39m) [94mas[39m f:                                                 [31m│
+[31m│[39m    78 │   │   │   [96mself[39m.context_data = json.load(f)                                               [31m│
+[31m│[39m    79 │   │   [94mwith[39m [96mopen[39m(json_path, [33m"r"[39m) [94mas[39m f:                                                    [31m│
+[31m│[39m    80 │   │   │   json_data = json.load(f)                                                       [31m│
+[31m╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+[1mFileNotFoundError: [[22mErrno [1m2][22m No such file or directory: [32m'./context.json'

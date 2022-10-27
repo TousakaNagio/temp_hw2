@@ -19,6 +19,7 @@ from utils import same_seeds
 def mc_predict(data_loader, model):
     model.eval()
     relevant = {}
+    print("Processing MC prediction....")
     for batch in tqdm(data_loader):
         ids, input_ids, token_type_ids, attention_masks, labels = batch
         output = model(
@@ -37,6 +38,7 @@ def mc_predict(data_loader, model):
 def qa_predict(args, data_loader, model, n_best=1):
     ret = []
     model.eval()
+    print("Processing QA prediction....")
     for batch in tqdm(data_loader):
         answers = []
 
@@ -54,13 +56,16 @@ def qa_predict(args, data_loader, model, n_best=1):
 
         start_logits = qa_output.start_logits.cpu().numpy()
         end_logits = qa_output.end_logits.cpu().numpy()
+        # print('=============', len(start_logits[0]), len(end_logits[0])) 512, 512
         for i in range(len(input_ids)):
             start_logit = start_logits[i]
             end_logit = end_logits[i]
-            offsets = inputs["offset_mapping"][i]
+            offsets = inputs["offset_mapping"][i] # len(offsets)==512, list
 
             start_indexes = np.argsort(start_logit)[-1 : -n_best - 1 : -1].tolist()
             end_indexes = np.argsort(end_logit)[-1 : -n_best - 1 : -1].tolist()
+            
+            # print('-----------', len(start_indexes), len(end_indexes)) 20, 20
 
             for start_index in start_indexes:
                 for end_index in end_indexes:
@@ -68,7 +73,6 @@ def qa_predict(args, data_loader, model, n_best=1):
                         continue
                     if end_index < start_index:
                         continue
-
                     answers.append(
                         {
                             "text": context[
@@ -78,9 +82,9 @@ def qa_predict(args, data_loader, model, n_best=1):
                             + end_logit[end_index],
                         }
                     )
-        print(answers)
+        # print(answers)
         if len(answers) == 0:
-            best_answer = "錯誤"
+            best_answer = {"text": "錯誤"}
         else:
             best_answer = max(answers, key=lambda x: x["logit_score"])
         ret.append((ids[0], best_answer["text"]))
@@ -92,7 +96,7 @@ def main(args):
     accelerator = Accelerator(fp16=True)
 
     ckpt = torch.load(os.path.join(args.mc_ckpt))
-    namae = 'hfl/chinese-macbert-base'
+    namae = './pretrained_token'
     config = AutoConfig.from_pretrained(namae)
     tokenizer = AutoTokenizer.from_pretrained(
         namae, config=config, model_max_length=args.max_len, use_fast=True

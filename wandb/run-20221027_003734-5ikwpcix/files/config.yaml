@@ -1,0 +1,96 @@
+wandb_version: 1
+
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.12.17
+    framework: huggingface
+    huggingface_version: 4.23.1
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    python_version: 3.8.13
+    start_time: 1666802254
+    t:
+      1:
+      - 1
+      - 2
+      - 3
+      - 11
+      - 49
+      - 51
+      - 55
+      2:
+      - 1
+      - 2
+      - 3
+      - 11
+      - 49
+      - 51
+      - 55
+      3:
+      - 16
+      4: 3.8.13
+      5: 0.12.17
+      6: 4.23.1
+      8:
+      - 5
+accumulation_steps:
+  desc: null
+  value: 4
+batch_size:
+  desc: null
+  value: 8
+cache_dir:
+  desc: null
+  value: cache
+ckpt_dir:
+  desc: null
+  value: ckpt
+context_path:
+  desc: null
+  value: null
+data_dir:
+  desc: null
+  value: data
+device:
+  desc: null
+  value: cuda
+from_scratch:
+  desc: null
+  value: false
+json_path:
+  desc: null
+  value: null
+lr:
+  desc: null
+  value: 3.0e-05
+max_len:
+  desc: null
+  value: 512
+model_name:
+  desc: null
+  value: hfl/chinese-macbert-base
+num_epoch:
+  desc: null
+  value: 5
+prefix:
+  desc: null
+  value: ''
+resume:
+  desc: null
+  value: null
+seed:
+  desc: null
+  value: 1126
+task:
+  desc: null
+  value: QA
+wandb:
+  desc: null
+  value: false
+warmup_step:
+  desc: null
+  value: 30
+weight_decay:
+  desc: null
+  value: 1.0e-06

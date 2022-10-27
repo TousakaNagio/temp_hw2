@@ -171,7 +171,7 @@ def parse_args():
         "--data_dir",
         type=Path,
         help="Directory to the dataset.",
-        default=".",
+        default="./data",
     )
     parser.add_argument("--model_name", type=str, default="hfl/chinese-macbert-base")
     parser.add_argument(
@@ -207,7 +207,7 @@ def parse_args():
     parser.add_argument("--weight_decay", type=float, default=1e-6)
 
     # data loader
-    parser.add_argument("--batch_size", type=int, default=16)
+    parser.add_argument("--batch_size", type=int, default=4)
 
     # training
     parser.add_argument(

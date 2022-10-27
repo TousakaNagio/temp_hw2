@@ -1,0 +1,155 @@
+2022-10-27 00:36:55,772 INFO    MainThread:61562 [internal.py:wandb_internal():90] W&B internal server running at pid: 61562, started at: 2022-10-27 00:36:55.772667
+2022-10-27 00:36:55,774 INFO    WriterThread:61562 [datastore.py:open_for_write():75] open: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/run-negtmv0v.wandb
+2022-10-27 00:36:55,774 DEBUG   SenderThread:61562 [sender.py:send():232] send: header
+2022-10-27 00:36:55,774 DEBUG   SenderThread:61562 [sender.py:send():232] send: run
+2022-10-27 00:36:55,777 INFO    SenderThread:61562 [sender.py:_maybe_setup_resume():489] checking resume status for None/ADL_HW2/negtmv0v
+2022-10-27 00:36:56,216 INFO    SenderThread:61562 [dir_watcher.py:__init__():197] watching files in: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files
+2022-10-27 00:36:56,216 INFO    SenderThread:61562 [sender.py:_start_run_threads():811] run started: negtmv0v with start time 1666802215
+2022-10-27 00:36:56,232 DEBUG   SenderThread:61562 [sender.py:send():232] send: summary
+2022-10-27 00:36:56,233 INFO    SenderThread:61562 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-10-27 00:36:56,233 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: check_version
+2022-10-27 00:36:56,233 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: check_version
+2022-10-27 00:36:56,407 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: run_start
+2022-10-27 00:36:57,216 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_created():244] file/dir created: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-summary.json
+2022-10-27 00:36:58,610 DEBUG   HandlerThread:61562 [meta.py:__init__():35] meta init
+2022-10-27 00:36:58,610 DEBUG   HandlerThread:61562 [meta.py:__init__():49] meta init done
+2022-10-27 00:36:58,610 DEBUG   HandlerThread:61562 [meta.py:probe():209] probe
+2022-10-27 00:36:58,616 DEBUG   HandlerThread:61562 [meta.py:_setup_git():199] setup git
+2022-10-27 00:36:58,637 DEBUG   HandlerThread:61562 [meta.py:_setup_git():206] setup git done
+2022-10-27 00:36:58,637 DEBUG   HandlerThread:61562 [meta.py:_save_pip():53] save pip
+2022-10-27 00:36:58,637 DEBUG   HandlerThread:61562 [meta.py:_save_pip():67] save pip done
+2022-10-27 00:36:58,637 DEBUG   HandlerThread:61562 [meta.py:_save_conda():74] save conda
+2022-10-27 00:36:59,219 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_created():244] file/dir created: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/conda-environment.yaml
+2022-10-27 00:36:59,220 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_created():244] file/dir created: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/requirements.txt
+2022-10-27 00:36:59,353 DEBUG   HandlerThread:61562 [meta.py:_save_conda():84] save conda done
+2022-10-27 00:36:59,353 DEBUG   HandlerThread:61562 [meta.py:probe():247] probe done
+2022-10-27 00:36:59,355 DEBUG   SenderThread:61562 [sender.py:send():232] send: files
+2022-10-27 00:36:59,355 INFO    SenderThread:61562 [sender.py:_save_file():948] saving file wandb-metadata.json with policy now
+2022-10-27 00:36:59,358 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: stop_status
+2022-10-27 00:36:59,358 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: stop_status
+2022-10-27 00:36:59,553 DEBUG   SenderThread:61562 [sender.py:send():232] send: telemetry
+2022-10-27 00:36:59,947 INFO    Thread-11 :61562 [upload_job.py:push():132] Uploaded file /tmp/tmpu47bj7ejwandb/3cbhqhxq-wandb-metadata.json
+2022-10-27 00:37:00,220 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/conda-environment.yaml
+2022-10-27 00:37:00,220 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_created():244] file/dir created: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:00,221 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_created():244] file/dir created: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-metadata.json
+2022-10-27 00:37:02,220 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:04,202 DEBUG   SenderThread:61562 [sender.py:send():232] send: telemetry
+2022-10-27 00:37:04,221 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:06,222 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:06,655 DEBUG   SenderThread:61562 [sender.py:send():232] send: exit
+2022-10-27 00:37:06,655 INFO    SenderThread:61562 [sender.py:send_exit():368] handling exit code: 1
+2022-10-27 00:37:06,656 INFO    SenderThread:61562 [sender.py:send_exit():370] handling runtime: 10
+2022-10-27 00:37:06,656 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:06,657 INFO    SenderThread:61562 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-10-27 00:37:06,657 INFO    SenderThread:61562 [sender.py:send_exit():376] send defer
+2022-10-27 00:37:06,657 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:06,658 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,658 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 0
+2022-10-27 00:37:06,658 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,658 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 0
+2022-10-27 00:37:06,659 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 1
+2022-10-27 00:37:06,659 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,659 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 1
+2022-10-27 00:37:06,687 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,688 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 1
+2022-10-27 00:37:06,688 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 2
+2022-10-27 00:37:06,688 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,688 DEBUG   SenderThread:61562 [sender.py:send():232] send: stats
+2022-10-27 00:37:06,688 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 2
+2022-10-27 00:37:06,689 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,689 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 2
+2022-10-27 00:37:06,689 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 3
+2022-10-27 00:37:06,689 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,689 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 3
+2022-10-27 00:37:06,689 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,689 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 3
+2022-10-27 00:37:06,690 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 4
+2022-10-27 00:37:06,690 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,690 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 4
+2022-10-27 00:37:06,690 DEBUG   SenderThread:61562 [sender.py:send():232] send: summary
+2022-10-27 00:37:06,690 INFO    SenderThread:61562 [sender.py:_save_file():948] saving file wandb-summary.json with policy end
+2022-10-27 00:37:06,690 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,690 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 4
+2022-10-27 00:37:06,690 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 5
+2022-10-27 00:37:06,691 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,691 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 5
+2022-10-27 00:37:06,691 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,691 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 5
+2022-10-27 00:37:06,760 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:06,978 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 6
+2022-10-27 00:37:06,979 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:06,979 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:06,979 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 6
+2022-10-27 00:37:06,980 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:06,980 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 6
+2022-10-27 00:37:06,980 INFO    SenderThread:61562 [dir_watcher.py:finish():312] shutting down directory watcher
+2022-10-27 00:37:07,082 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,222 INFO    Thread-7  :61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:07,223 INFO    SenderThread:61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/config.yaml
+2022-10-27 00:37:07,224 INFO    SenderThread:61562 [dir_watcher.py:_on_file_modified():257] file/dir modified: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-summary.json
+2022-10-27 00:37:07,224 INFO    SenderThread:61562 [dir_watcher.py:finish():342] scan: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files
+2022-10-27 00:37:07,224 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/conda-environment.yaml conda-environment.yaml
+2022-10-27 00:37:07,225 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/config.yaml config.yaml
+2022-10-27 00:37:07,225 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-summary.json wandb-summary.json
+2022-10-27 00:37:07,225 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/requirements.txt requirements.txt
+2022-10-27 00:37:07,226 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-metadata.json wandb-metadata.json
+2022-10-27 00:37:07,230 INFO    SenderThread:61562 [dir_watcher.py:finish():356] scan save: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log output.log
+2022-10-27 00:37:07,231 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 7
+2022-10-27 00:37:07,231 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,238 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:07,238 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 7
+2022-10-27 00:37:07,248 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:07,250 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 7
+2022-10-27 00:37:07,252 INFO    SenderThread:61562 [file_pusher.py:finish():145] shutting down file pusher
+2022-10-27 00:37:07,339 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,340 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,442 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,442 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,545 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,545 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,647 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,647 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,750 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,750 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,852 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,853 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:07,856 INFO    Thread-16 :61562 [upload_job.py:push():132] Uploaded file /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/output.log
+2022-10-27 00:37:07,861 INFO    Thread-14 :61562 [upload_job.py:push():132] Uploaded file /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/wandb-summary.json
+2022-10-27 00:37:07,866 INFO    Thread-15 :61562 [upload_job.py:push():132] Uploaded file /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/requirements.txt
+2022-10-27 00:37:07,878 INFO    Thread-13 :61562 [upload_job.py:push():132] Uploaded file /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/config.yaml
+2022-10-27 00:37:07,939 INFO    Thread-12 :61562 [upload_job.py:push():132] Uploaded file /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/files/conda-environment.yaml
+2022-10-27 00:37:07,956 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:07,957 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:08,059 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:08,059 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:08,140 INFO    Thread-6  :61562 [sender.py:transition_state():389] send defer: 8
+2022-10-27 00:37:08,141 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:08,141 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 8
+2022-10-27 00:37:08,141 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:08,142 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 8
+2022-10-27 00:37:08,162 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:08,451 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 9
+2022-10-27 00:37:08,452 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:08,452 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:08,453 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 9
+2022-10-27 00:37:08,453 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:08,453 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 9
+2022-10-27 00:37:08,453 INFO    SenderThread:61562 [sender.py:transition_state():389] send defer: 10
+2022-10-27 00:37:08,454 DEBUG   SenderThread:61562 [sender.py:send():232] send: final
+2022-10-27 00:37:08,454 DEBUG   SenderThread:61562 [sender.py:send():232] send: footer
+2022-10-27 00:37:08,455 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: defer
+2022-10-27 00:37:08,455 INFO    HandlerThread:61562 [handler.py:handle_request_defer():164] handle defer: 10
+2022-10-27 00:37:08,455 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: defer
+2022-10-27 00:37:08,455 INFO    SenderThread:61562 [sender.py:send_request_defer():385] handle sender defer: 10
+2022-10-27 00:37:08,555 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: poll_exit
+2022-10-27 00:37:08,555 DEBUG   SenderThread:61562 [sender.py:send_request():246] send_request: poll_exit
+2022-10-27 00:37:08,555 INFO    SenderThread:61562 [file_pusher.py:join():150] waiting for file pusher
+2022-10-27 00:37:09,059 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: sampled_history
+2022-10-27 00:37:09,060 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: get_summary
+2022-10-27 00:37:09,061 DEBUG   HandlerThread:61562 [handler.py:handle_request():141] handle_request: shutdown
+2022-10-27 00:37:09,061 INFO    HandlerThread:61562 [handler.py:finish():806] shutting down handler
+2022-10-27 00:37:09,454 INFO    WriterThread:61562 [datastore.py:close():279] close: /data/ntu/adl2022/adl22_hw2/wandb/run-20221027_003655-negtmv0v/run-negtmv0v.wandb
+2022-10-27 00:37:09,957 INFO    SenderThread:61562 [sender.py:finish():1110] shutting down sender
+2022-10-27 00:37:09,957 INFO    SenderThread:61562 [file_pusher.py:finish():145] shutting down file pusher
+2022-10-27 00:37:09,957 INFO    SenderThread:61562 [file_pusher.py:join():150] waiting for file pusher
+2022-10-27 00:37:09,960 INFO    MainThread:61562 [internal.py:handle_exit():80] Internal process exited

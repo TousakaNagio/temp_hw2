@@ -1,0 +1,682 @@
+BertConfig {
+  "_name_or_path": "hfl/chinese-macbert-base",
+  "architectures": [
+    "BertForMaskedLM"
+  ],
+  "attention_probs_dropout_prob": 0.1,
+  "classifier_dropout": null,
+  "directionality": "bidi",
+  "gradient_checkpointing": false,
+  "hidden_act": "gelu",
+  "hidden_dropout_prob": 0.1,
+  "hidden_size": 768,
+  "initializer_range": 0.02,
+  "intermediate_size": 3072,
+  "layer_norm_eps": 1e-12,
+  "max_position_embeddings": 512,
+  "model_type": "bert",
+  "num_attention_heads": 12,
+  "num_hidden_layers": 12,
+  "pad_token_id": 0,
+  "pooler_fc_size": 768,
+  "pooler_num_attention_heads": 12,
+  "pooler_num_fc_layers": 3,
+  "pooler_size_per_head": 128,
+  "pooler_type": "first_token_transform",
+  "position_embedding_type": "absolute",
+  "transformers_version": "4.23.1",
+  "type_vocab_size": 2,
+  "use_cache": true,
+  "vocab_size": 21128
+}
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 21714/21714 [00:00<00:00, 1915918.82it/s]
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 3009/3009 [00:00<00:00, 2765263.09it/s]
+Some weights of the model checkpoint at hfl/chinese-macbert-base were not used when initializing BertForQuestionAnswering: ['cls.predictions.decoder.weight', 'cls.predictions.transform.LayerNorm.weight', 'cls.predictions.decoder.bias', 'cls.seq_relationship.weight', 'cls.predictions.transform.dense.weight', 'cls.predictions.transform.LayerNorm.bias', 'cls.predictions.transform.dense.bias', 'cls.seq_relationship.bias', 'cls.predictions.bias']
+- This IS expected if you are initializing BertForQuestionAnswering from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing BertForQuestionAnswering from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+Some weights of BertForQuestionAnswering were not initialized from the model checkpoint at hfl/chinese-macbert-base and are newly initialized: ['qa_outputs.bias', 'qa_outputs.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+Preprocessing QA train Data:
+Preprocessing QA valid Data:
+Using cuda
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|██████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 5429/5429 [19:13<00:00,  4.71it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 753/753 [00:51<00:00, 14.59it/s]
+Traceback (most recent call last):
+  File "train_qa.py", line 273, in <module>
+    main(args)
+  File "train_qa.py", line 154, in main
+    save_model(model, epoch, optimizer, scheduler, args)
+  File "/data/ntu/adl2022/adl22_hw2/utils.py", line 26, in save_model
+    }, os.path.join(args.ckpt_dir, file_name))
+NameError: name 'os' is not defined
+[31m╭─────────────────────────────── [39m[1mTraceback (most recent call last)[31m[22m ────────────────────────────────╮
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mtrain_qa.py[22m:[94m273[39m in [92m<module>[39m                                          [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   270 │   │   resume = [33m"allow"[39m                                                                   [31m│
+[31m│[39m   271 │   )                                                                                      [31m│
+[31m│[39m   272 │   artifact = wandb.Artifact([33m"model"[39m, [96mtype[39m=[33m"model"[39m)                                       [31m│
+[31m│[39m [31m❱ [39m273 │   main(args)                                                                             [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mtrain_qa.py[22m:[94m154[39m in [92mmain[39m                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   151 │   │   │   │   [33mos.path.join(args.ckpt_dir, f"{args.prefix}qa_loss.ckpt"),[39m                 [31m│
+[31m│[39m   152 │   │   │   [33m)[39m                                                                              [31m│
+[31m│[39m   153 │   │   │   [33m"""[39m                                                                            [31m│
+[31m│[39m [31m❱ [39m154 │   │   save_model(model, epoch, optimizer, scheduler, args)                               [31m│
+[31m│[39m   155 │   │   [33m"""[39m                                                                                [31m│
+[31m│[39m   156 │   │   [33mtorch.save([39m                                                                        [31m│
+[31m│[39m   157 │   │   │   [33m{[39m                                                                              [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m /data/ntu/adl2022/adl22_hw2/[1mutils.py[22m:[94m26[39m in [92msave_model[39m                                            [31m│
+[31m│[39m                                                                                                  [31m│
+[31m│[39m   23 │   │   │   │   [33m"scheduler"[39m: scheduler.state_dict(),                                        [31m│
+[31m│[39m   24 │   │   │   │   [33m"epoch"[39m: epoch,                                                             [31m│
+[31m│[39m   25 │   │   │   │   [33m"name"[39m: args.model_name,                                                    [31m│
+[31m│[39m [31m❱ [39m26 │   │   │   }, os.path.join(args.ckpt_dir, file_name))                                      [31m│
+[31m│[39m   27                                                                                             [31m│
+[31m│[39m   28 [94mdef[39m [92mget_config[39m():                                                                           [31m│
+[31m│[39m   29 │   config = BertConfig(                                                                    [31m│
+[31m╰──────────────────────────────────────────────────────────────────────────────────────────────────╯
+[1mNameError: [22mname [32m'os'[39m is not defined
+Epoch 1:
+Train Accuracy: 0.60, Train Loss: 0.25
+Valid Accuracy: 0.80, Valid Loss: 0.72

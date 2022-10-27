@@ -74,7 +74,7 @@ def main(args):
     # Tokenizer
     # tokenizer = AutoTokenizer.save_pretrained('pretrained_token')
     tokenizer = AutoTokenizer.from_pretrained(args.model_name, config=config, model_max_length=args.max_len, use_fast=True)
-    tokenizer.save_pretrained('./pretrained_token')
+    # tokenizer.save_pretrained('./pretrained_token')
 
     # Prepare dataset and dataloader
     train_set = MCDataset(args, tokenizer, mode='train')

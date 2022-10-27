@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.15.0-52-generic-x86_64-with-glibc2.17",
+    "python": "3.8.13",
+    "heartbeatAt": "2022-10-26T16:37:37.822695",
+    "startedAt": "2022-10-26T16:37:34.591590",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3070 Laptop GPU",
+    "gpu_count": 1,
+    "cpu_count": 8,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "train_qa.py",
+    "codePath": "train_qa.py",
+    "git": {
+        "remote": "git@github.com:TousakaNagio/adl22_hw2.git",
+        "commit": "0916c412d9ba8c6c232106faf359d96607b20bad"
+    },
+    "email": "railgun31325@gmail.com",
+    "root": "/data/ntu/adl2022/adl22_hw2",
+    "host": "nagio-no-pasokon",
+    "username": "nagio",
+    "executable": "/data/miniconda3/envs/adl_hw2/bin/python3"
+}
