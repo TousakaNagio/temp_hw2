@@ -7,7 +7,7 @@ from torch.utils.data import Dataset
 from tqdm import tqdm
 
 
-class MultipleChoiceDataset(Dataset):
+class MCDataset(Dataset):
     def __init__(self, args, tokenizer, mode="train"):
         self.mode = mode
         self.json_data = []
@@ -74,10 +74,10 @@ class MultipleChoiceDataset(Dataset):
         attention_masks = torch.stack(attention_masks)
         token_type_ids = torch.stack(token_type_ids)
         labels = torch.LongTensor(labels)
-        return ids, input_ids, attention_masks, token_type_ids, labels
+        return ids, input_ids, token_type_ids, attention_masks, labels
 
 
-class QuestionAnsweringDataset(Dataset):
+class QADataset(Dataset):
     def __init__(self, args, tokenizer, mode="train", relevant=None):
         assert not (mode == "test" and relevant is None)
         self.mode = mode

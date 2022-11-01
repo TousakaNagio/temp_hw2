@@ -213,13 +213,20 @@ if __name__ == "__main__":
     args = parse_args()
     args.ckpt_dir.mkdir(parents=True, exist_ok=True)
     args.cache_dir.mkdir(parents=True, exist_ok=True)
-    wandb_config = vars(args)
-    run = wandb.init(
-        project = f"ADL_HW2",
-        config = wandb_config,
-        reinit = True,
-        group = "Multi_Choise",
-        resume = "allow"
-    )
-    artifact = wandb.Artifact("model", type="model")
+    # wandb_config = vars(args)
+    # run = wandb.init(
+    #     project = f"ADL_HW2",
+    #     config = wandb_config,
+    #     reinit = True,
+    #     group = "Multi_Choise",
+    #     resume = "allow"
+    # )
+    # artifact = wandb.Artifact("model", type="model")
+    if args.wandb:
+        wandb.login()
+        wandb.init(
+            project="Multiple Choice",
+            group = "Multi_Choise",
+        )
+        wandb.config.update(args)
     main(args)

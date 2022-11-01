@@ -1,3 +1,4 @@
+import collections
 import os
 from argparse import ArgumentParser
 from pathlib import Path
@@ -10,7 +11,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 from transformers import AutoConfig, AutoTokenizer
 
-from datasets import *
+from dataset import *
 from model import *
 from utils import same_seeds
 
@@ -19,9 +20,8 @@ from utils import same_seeds
 def mc_predict(data_loader, model):
     model.eval()
     relevant = {}
-    print("Processing MC prediction....")
     for batch in tqdm(data_loader):
-        ids, input_ids, token_type_ids, attention_masks, labels = batch
+        ids, input_ids, attention_masks, token_type_ids, labels = batch
         output = model(
             input_ids=input_ids,
             attention_mask=attention_masks,
@@ -38,8 +38,6 @@ def mc_predict(data_loader, model):
 def qa_predict(args, data_loader, model, n_best=1):
     ret = []
     model.eval()
-    count = 0
-    print("Processing QA prediction....")
     for batch in tqdm(data_loader):
         answers = []
 
@@ -57,16 +55,13 @@ def qa_predict(args, data_loader, model, n_best=1):
 
         start_logits = qa_output.start_logits.cpu().numpy()
         end_logits = qa_output.end_logits.cpu().numpy()
-        # print('=============', len(start_logits[0]), len(end_logits[0])) 512, 512
         for i in range(len(input_ids)):
             start_logit = start_logits[i]
             end_logit = end_logits[i]
-            offsets = inputs["offset_mapping"][i] # len(offsets)==512, list
+            offsets = inputs["offset_mapping"][i]
 
             start_indexes = np.argsort(start_logit)[-1 : -n_best - 1 : -1].tolist()
             end_indexes = np.argsort(end_logit)[-1 : -n_best - 1 : -1].tolist()
-            
-            # print('-----------', len(start_indexes), len(end_indexes)) 20, 20
 
             for start_index in start_indexes:
                 for end_index in end_indexes:
@@ -74,6 +69,7 @@ def qa_predict(args, data_loader, model, n_best=1):
                         continue
                     if end_index < start_index:
                         continue
+
                     answers.append(
                         {
                             "text": context[
@@ -83,13 +79,7 @@ def qa_predict(args, data_loader, model, n_best=1):
                             + end_logit[end_index],
                         }
                     )
-        # print(answers)
-        if len(answers) == 0:
-            count += 1
-            print("==== {} ===".format(count))
-            best_answer = {"text": "錯誤"}
-        else:
-            best_answer = max(answers, key=lambda x: x["logit_score"])
+        best_answer = max(answers, key=lambda x: x["logit_score"])
         ret.append((ids[0], best_answer["text"]))
     return ret
 
@@ -105,6 +95,7 @@ def main(args):
         namae, config=config, model_max_length=args.max_len, use_fast=True
     )
     model = MCModel(args, config, ckpt["name"])
+    print(ckpt["name"])
     model.load_state_dict(ckpt["model"])
     test_set = MCDataset(args, tokenizer, mode="test")
     test_loader = DataLoader(
@@ -121,6 +112,7 @@ def main(args):
 
     ckpt = torch.load(os.path.join(args.qa_ckpt))
     model = QAModel(args, config, ckpt["name"])
+    print(ckpt["name"])
     model.load_state_dict(ckpt["model"])
     test_set = QADataset(args, tokenizer, mode="test", relevant=relevant)
     test_loader = DataLoader(
@@ -162,7 +154,7 @@ def parse_args():
     parser.add_argument("--mc_ckpt", type=Path, default="./ckpt/mc_1.ckpt")
 
     parser.add_argument("--qa_ckpt", type=Path, default="./ckpt/qa_2.ckpt")
-    parser.add_argument("--csv_path", type=str, default="output.csv")
+    parser.add_argument("--csv_path", type=str, default="submission.csv")
 
     parser.add_argument("--max_len", type=int, default=512)
     parser.add_argument("--from_pretrain", action="store_true")
@@ -171,23 +163,6 @@ def parse_args():
 
     args = parser.parse_args()
     return args
-    """
-    parameters = {
-        "seed": 1126,
-        "cache_dir": Path("/content/cache/"),
-        "context_path": Path('/content/data/context.json'),
-        "json_path": Path('/content/data/test.json'),
-        "mc_ckpt": Path('/content/ckpt/_MC_1.ckpt'),
-        "qa_ckpt": Path('/content/ckpt/_QA_1.ckpt'),
-        "csv_path": 'output.csv',
-        "max_len": 512,
-        "from_pretrain": False,
-        "from_scratch": False,
-        "model_name": "hfl/chinese-macbert-base",
-    }
-    config = Namespace(**parameters)
-    return config
-    """
 
 
 if __name__ == "__main__":
