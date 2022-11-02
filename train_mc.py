@@ -225,7 +225,7 @@ if __name__ == "__main__":
     if args.wandb:
         wandb.login()
         wandb.init(
-            project="Multiple Choice",
+            project="fADL_HW2",
             group = "Multi_Choise",
         )
         wandb.config.update(args)
